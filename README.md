@@ -9,10 +9,15 @@ Bsah script that runs the TRANSIT2 pipeline for CDP data (FASTQ files).
 The slurm script to run the pipeline. 
 Required arguments:
 -i is the list of fastq files in the run.
+
 -r is the sgrna info file for the library of interest.
+
 -m is the sample metadata sheet that has to be generated.
+
 -o is the output prefix(text input).
+
 -f is the flag to run the BSAF comparisons.
+
 -b is the base name for the BSAF run like ND_bsaf, NDBSAF, BSAF etc. (only required with -f).
 
 ## extract_drugs.py
