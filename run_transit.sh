@@ -80,7 +80,7 @@ while IFS= read -r fastq_file; do
 done < "$input_filelist"
 
 # Extract unique drug names from sample metadata
-unique_drugs=$(python extract_drugs.py "$sample_metadata")
+unique_drugs=$(python ~/CDP/scripts/extract_drugs.py "$sample_metadata")
 
 if [ "$bsaf" = true ]; then
   # Create combined counts files for the specified base only
@@ -152,7 +152,7 @@ if [ "$bsaf" = true ]; then
     input_file_base="${base_name}_results/${output_prefix}_${drug}_CRISPRi-DR_results_${base_name}.txt"
     output_file_base="${base_name}_results/${output_prefix}_${drug}_CRISPRi-DR_results_${base_name}_edited.txt"
     if [[ -f "$input_file_base" ]]; then
-      python add_rvnumber.py -d "$input_file_base" -o "$output_file_base"
+      python ~/CDP/scripts/add_rvnumber.py -d "$input_file_base" -o "$output_file_base"
       echo "Processed $input_file_base -> $output_file_base"
     else
       echo "File $input_file_base not found"
@@ -228,7 +228,7 @@ else
     input_file_nd="ND_results/${output_prefix}_${drug}_CRISPRi-DR_results_nd.txt"
     output_file_nd="ND_results/${output_prefix}_${drug}_CRISPRi-DR_results_nd_edited.txt"
     if [[ -f "$input_file_nd" ]]; then
-      python add_rvnumber.py -d "$input_file_nd" -o "$output_file_nd"
+      python ~/CDP/scripts/add_rvnumber.py -d "$input_file_nd" -o "$output_file_nd"
       echo "Processed $input_file_nd -> $output_file_nd"
     else
       echo "File $input_file_nd not found"
